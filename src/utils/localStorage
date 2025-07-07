@@ -1,0 +1,17 @@
+// Utility to get/set localStorage with JSON handling
+export const loadFromStorage = (key) => {
+  try {
+    const data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : null;
+  } catch {
+    return null;
+  }
+};
+
+export const saveToStorage = (key, data) => {
+  try {
+    localStorage.setItem(key, JSON.stringify(data));
+  } catch {
+    // fail silently
+  }
+};
